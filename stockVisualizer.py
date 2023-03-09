@@ -1,3 +1,6 @@
+# this code requires pip pygal, lxml, and requests
+
+
 # API stuff
 
 
