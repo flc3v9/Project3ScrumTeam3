@@ -1,11 +1,10 @@
 # this code requires pip pygal, lxml, and requests
 import pygal, lxml, requests
+from datetime import datetime
 
 
 # API
     # for these, you will want to use the link format. we might have to see how to connect these
-
-
 
 # Write our functions
 def getSymbol():
@@ -17,11 +16,32 @@ def getChartType():
 def getTimeSeries():
     return
 
-def getBeginDate():
-    return
+def getDateRange():
+    while True:
+        beginDate = getDate("beginning")
+        print("")
+        endDate = getDate("ending")
 
-def getEndDate():
-    return
+        if(beginDate < endDate):
+            break
+        else:
+            print("Please enter an ending date that is after the beginning date.\n")
+            continue
+    return beginDate, endDate
+
+def getDate(dateType):
+    while True:
+        strDate = input(f"Enter the {dateType} date in YYYY-MM-DD format:\n")
+        
+        # check format
+        format = "%Y-%m-%d"
+        try:
+            date = datetime.strptime(strDate, format)
+            break
+        except:
+            print("Please use the YYYY-MM-DD format.\n")
+            continue
+    return date
 
 def generateGraph(symbol, chart, timeSeries, beginDate, endDate):
     inputdata = [symbol, chart, timeSeries, beginDate, endDate]
@@ -53,6 +73,5 @@ def generateGraph(symbol, chart, timeSeries, beginDate, endDate):
 getSymbol()
 getChartType()
 getTimeSeries()
-getBeginDate()
-getEndDate()
+beginDate, endDate = getDateRange()
 generateGraph()
