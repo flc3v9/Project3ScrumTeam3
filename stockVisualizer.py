@@ -25,7 +25,7 @@ def getDateRange():
         if(startDate < endDate):
             break
         else:
-            print("\nPlease enter an end date that is after the start date.\n")
+            print("\nError: Start date cannot be later than End date. Enter the dates again.\n")
             continue
     return startDate, endDate
 
