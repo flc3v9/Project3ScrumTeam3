@@ -2,12 +2,18 @@
 
 # create menu option
 
+def getSymbol():
+    pass
+
+def getChartType():
+    pass
+
 def getTimeSeries():
     print('Select the Time Series of the chart you want to Generate:\n------------------------------------')
     print('1. Intraday\n2. Daily\n3. Weekly\n4.Monthly')
     choice = ""
     while True:
-        timeSeriesOption = input('Enter time series option(1, 2, 3, 4):')
+        timeSeriesOption = int(input('Enter time series option(1, 2, 3, 4): '))
         if (timeSeriesOption == 1):
             choice = "TIME_SERIES_INTRADAY"
             return choice
@@ -22,3 +28,19 @@ def getTimeSeries():
             return choice
         else:
             print('You have not chosen a valid option. Please only enter values between 1-4.')
+
+def getBeginDate():
+    pass
+
+def getEndDate():
+    pass
+
+def generateGraph():
+    pass
+
+getSymbol()
+getChartType()
+getTimeSeries()
+getBeginDate()
+getEndDate()
+generateGraph()
