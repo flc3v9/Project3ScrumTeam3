@@ -18,20 +18,20 @@ def getTimeSeries():
 
 def getDateRange():
     while True:
-        beginDate = getDate("beginning")
+        startDate = getDate("start")
         print("")
-        endDate = getDate("ending")
+        endDate = getDate("end")
 
-        if(beginDate < endDate):
+        if(startDate < endDate):
             break
         else:
-            print("Please enter an ending date that is after the beginning date.\n")
+            print("\nPlease enter an end date that is after the start date.\n")
             continue
-    return beginDate, endDate
+    return startDate, endDate
 
 def getDate(dateType):
     while True:
-        strDate = input(f"Enter the {dateType} date in YYYY-MM-DD format:\n")
+        strDate = input(f"Enter the {dateType} date (YYYY-MM-DD): ")
         
         # check format
         format = "%Y-%m-%d"
@@ -73,5 +73,5 @@ def generateGraph(symbol, chart, timeSeries, beginDate, endDate):
 getSymbol()
 getChartType()
 getTimeSeries()
-beginDate, endDate = getDateRange()
+startDate, endDate = getDateRange()
 generateGraph()
