@@ -68,10 +68,26 @@ def generateGraph(symbol, chart, timeSeries, beginDate, endDate):
 
     return
 
+def main():
+    while True:
+        # title
+        print("Stock Data Visualizer")
+        print("-------------------------\n")
+        
+        # run program
+        getSymbol()
+        getChartType()
+        getTimeSeries()
+        startDate, endDate = getDateRange()
+        # generateGraph()
+        
+        # run again?
+        run_again_input = input("\nWould you like to view more stock data? (y/n): ")
+        if (run_again_input == "y"):
+            print("\n")
+            continue
+        else:
+            print("\nOkay, thank you for using this program.")
+            break
 
-# Call our functions
-getSymbol()
-getChartType()
-getTimeSeries()
-startDate, endDate = getDateRange()
-generateGraph()
+main()
