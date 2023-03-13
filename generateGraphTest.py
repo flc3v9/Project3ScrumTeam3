@@ -11,7 +11,6 @@ endDate = datetime.strptime("2023-3-10", "%Y-%m-%d")
 interval = "5min"
 
 def getData(timeSeries, symbol):
-
     # populate the query parameters
     queryData = {'function': '', 'symbol': '', 'interval': '', 'apikey': ''}
     queryData['function'] = timeSeries
