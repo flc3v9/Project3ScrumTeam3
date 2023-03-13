@@ -50,41 +50,6 @@ def generateGraph(timeSeries, chart, stocksDictionary, startDate, endDate):
     if (chart =="Bar"):
         generateBarChart(timeSeries, timeSeriesData, startDate, endDate, graphTitle)
 
-# def generateLineGraph(timeSeries, timeSeriesData, startDate, endDate, graphTitle):
-#     # list the graph lines
-#     graphLines = ["1. open", "2. high", "3. low", "4. close"]
-
-#     # creating line graph
-#     lineGraph = pygal.DateLine(title=graphTitle, x_label_rotation=45, x_value_formatter=lambda dt: dt.strftime('%Y-%m-%d %H:%M:%S'))
-
-#     # loop through each line
-#     for line in graphLines:
-#         # create list of data points for the line
-#         dataPoints = list()
-#         # loop through the timeSeriesData (objects) to popoulate dataPoints list
-#         for date, values in timeSeriesData.items():
-#             # turn the date string into a datetime object
-#             if (timeSeries == "TIME_SERIES_INTRADAY"):
-#                 date = datetime.strptime(date, "%Y-%m-%d %H:%M:%S")
-#             else:
-#                 date = datetime.strptime(date, "%Y-%m-%d")
-#             # find objects based on date range
-#             if date > startDate and date < endDate:
-#                 # assign x-coordinate the date
-#                 # x = date.timestamp()
-#                 x = date
-#                 # assign y-coordinate it's value based on the current key (line name)
-#                 y = float(values[line])
-#                 # create the data point
-#                 dataPoint = (x, y)
-#                 # add the data point to the full list of data points
-#                 dataPoints.append(dataPoint)
-#         # add the line with all of the data points
-#         lineGraph.add(line, dataPoints)
-    
-#     # open graph in browser
-#     lineGraph.render_in_browser()
-
 def generateLineGraph(timeSeries, timeSeriesData, startDate, endDate, graphTitle):
     # list the graph lines
     graphLines = ["1. open", "2. high", "3. low", "4. close"]
