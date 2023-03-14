@@ -8,7 +8,7 @@ chart = "Line"
 timeSeries = "TIME_SERIES_INTRADAY" # still have to deal with intraday
 startDate = datetime.strptime("2023-3-9", "%Y-%m-%d")
 endDate = datetime.strptime("2023-3-10", "%Y-%m-%d")
-interval = "5min"
+interval = "15min"
 
 def getData(timeSeries, symbol):
     # populate the query parameters
