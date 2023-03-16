@@ -1,77 +1,14 @@
-# this code requires pip pygal, lxml, and requests
-import pygal, lxml, requests
+import requests
 from datetime import datetime
+import pygal
 
-def getSymbol():
-    #QY73AL7RJZDQESXX
-    symbol = input("Enter the stock symbol for the company you want data for: ")
-    #if(symbol != stock api data)
-    #{print("Please put in a valid stock ID")}
-    #else{return symbol}
-    return symbol
-
-def getChartType():
-    print('Chart Type\n------------------------------------')
-    print('1. Bar\n2. Line')
-    choice = ""
-    while True:
-        chartTypeOption = int(input('Enter chart type you want (1, 2): '))
-        if (chartTypeOption == 1):
-            choice = "Line"
-            return choice
-        elif (chartTypeOption == 2):
-            choice = "Bar"
-            return choice
-        else:
-            print('You have not chosen a valid option. Please only enter values 1 or 2.')
-
-def getTimeSeries():
-    print('Select the Time Series of the chart you want to Generate:\n------------------------------------')
-    print('1. Intraday\n2. Daily\n3. Weekly\n4.Monthly')
-    choice = ""
-    while True:
-        timeSeriesOption = int(input('Enter time series option(1, 2, 3, 4): '))
-        if (timeSeriesOption == 1):
-            choice = "TIME_SERIES_INTRADAY"
-            return choice
-        elif (timeSeriesOption == 2):
-            choice = "TIME_SERIES_DAILY_ADJUSTED"
-            return choice
-        elif (timeSeriesOption == 3):
-            choice = "TIME_SERIES_WEEKLY"
-            return choice
-        elif (timeSeriesOption == 4):
-            choice = "TIME_SERIES_MONTHLY"
-            return choice
-        else:
-            print('You have not chosen a valid option. Please only enter values between 1-4.')
-
-def getDateRange():
-    while True:
-        startDate = getDate("start")
-        print("")
-        endDate = getDate("end")
-
-        if(startDate < endDate):
-            break
-        else:
-            print("\nError: Start date cannot be later than End date. Enter the dates again.\n")
-            continue
-    return startDate, endDate
-
-def getDate(dateType):
-    while True:
-        strDate = input(f"Enter the {dateType} date (YYYY-MM-DD): ")
-        
-        # check format
-        format = "%Y-%m-%d"
-        try:
-            date = datetime.strptime(strDate, format)
-            break
-        except:
-            print("Please use the YYYY-MM-DD format.\n")
-            continue
-    return date
+# should come from other functions
+symbol = "IBM"
+chart = "Line"
+timeSeries = "TIME_SERIES_INTRADAY" # still have to deal with intraday
+startDate = datetime.strptime("2023-3-9", "%Y-%m-%d")
+endDate = datetime.strptime("2023-3-10", "%Y-%m-%d")
+interval = "15min"
 
 def getData(timeSeries, symbol):
     # populate the query parameters
@@ -185,17 +122,9 @@ def generateBarChart(timeSeries, timeSeriesData, startDate, endDate, graphTitle)
     
     # open graph in browser
     barChart.render_in_browser()
-
-# Call our functions
+    
 def main():
-    try:
-        symbol = getSymbol()
-        chart = getChartType()
-        timeSeries = getTimeSeries()
-        startDate, endDate = getDateRange()
-        stocksDictionary = getData(timeSeries, symbol)
-        generateGraph(timeSeries, chart, stocksDictionary, startDate, endDate)
-    except Exception as error:
-        print(f"Something went wrong with the symbol. {str(error)}")
+    stocksDictionary = getData(timeSeries, symbol)
+    generateGraph(timeSeries, chart, stocksDictionary, startDate, endDate)
 
 main()
