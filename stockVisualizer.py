@@ -12,7 +12,20 @@ def getSymbol():
     return symbol
 
 def getChartType():
-    return
+    print('Chart Type\n------------------------------------')
+    print('1. Bar\n2. Line')
+    choice = ""
+    while True:
+        chartTypeOption = int(input('Enter chart type you want (1, 2): '))
+        if (chartTypeOption == 1):
+            choice = "Line"
+            return choice
+        elif (chartTypeOption == 2):
+            choice = "Bar"
+            return choice
+        else:
+            print('You have not chosen a valid option. Please only enter values 1 or 2.')
+
 
 def getTimeSeries():
     print('Select the Time Series of the chart you want to Generate:\n------------------------------------')
