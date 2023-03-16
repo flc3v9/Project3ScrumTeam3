@@ -9,7 +9,13 @@ from datetime import datetime
 # Write our functions
 def getSymbol():
     #QY73AL7RJZDQESXX
-    return
+    symbol = input("Enter the stock symbol for the company you want data for: ")
+    #if(symbol != stock api data)
+    #{print("Please put in a valid stock ID")}
+    #else{return symbol}
+
+    
+
 
 def getChartType():
     return
