@@ -129,8 +129,11 @@ def generateLineGraph(timeSeries, timeSeriesData, startDate, endDate, graphTitle
                 date = datetime.strptime(date, "%Y-%m-%d")
             # find objects based on date range
             if date > startDate and date < endDate:
-                # assign x-coordinate the date
-                x_labels.insert(0, date)
+                # add date to x-axis label list (assign x-coordinate the date)
+                if (timeSeries == "TIME_SERIES_INTRADAY"):
+                    x_labels.insert(0, date.strftime("%Y/%m/%d %H:%M:%S"))
+                else:
+                    x_labels.insert(0, date.strftime("%Y/%m/%d"))
                 # assign y-coordinate it's value based on the current key (line name)
                 y = float(values[line])
                 # add the y-coordinate to the list of data points
