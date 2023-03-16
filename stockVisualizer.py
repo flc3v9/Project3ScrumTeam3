@@ -81,8 +81,7 @@ def main():
         getSymbol()
         getChartType()
         getTimeSeries()
-        getBeginDate()
-        getEndDate()
+        getDateRange()
         generateGraph()
     except Exception as error:
         print(f"Something went wrong with the symbol. {str(error)}")
