@@ -71,8 +71,15 @@ def generateGraph(symbol, chart, timeSeries, beginDate, endDate):
 
 
 # Call our functions
-getSymbol()
-getChartType()
-getTimeSeries()
-beginDate, endDate = getDateRange()
-generateGraph()
+def main():
+    try:
+        getSymbol()
+        getChartType()
+        getTimeSeries()
+        getBeginDate()
+        getEndDate()
+        generateGraph()
+    except Exception as error:
+        print(f"Something went wrong with the symbol. {str(error)}")
+
+main()
