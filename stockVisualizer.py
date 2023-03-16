@@ -23,7 +23,7 @@ def getChartType():
 
 def getTimeSeries():
     print('Select the Time Series of the chart you want to Generate:\n------------------------------------')
-    print('1. Intraday\n2. Daily\n3. Weekly\n4.Monthly')
+    print('1. Intraday\n2. Daily\n3. Weekly\n4. Monthly')
     choice = ""
     while True:
         timeSeriesOption = int(input('Enter time series option(1, 2, 3, 4): '))
