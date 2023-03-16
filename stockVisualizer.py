@@ -186,9 +186,17 @@ def generateBarChart(timeSeries, timeSeriesData, startDate, endDate, graphTitle)
 def main():
     try:
         symbol = getSymbol()
+        
+        print("")
         chart = getChartType()
+        
+        print("")
         timeSeries = getTimeSeries()
+        
+        print("")
         startDate, endDate = getDateRange()
+        
+        print("")
         stocksDictionary = getData(timeSeries, symbol)
         generateGraph(symbol, timeSeries, chart, stocksDictionary, startDate, endDate)
     except Exception as error:
