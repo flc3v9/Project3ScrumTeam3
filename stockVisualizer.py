@@ -3,11 +3,7 @@ import pygal, lxml, requests
 from datetime import datetime
 
 def getSymbol():
-    #QY73AL7RJZDQESXX
     symbol = input("Enter the stock symbol for the company you want data for: ")
-    #if(symbol != stock api data)
-    #{print("Please put in a valid stock ID")}
-    #else{return symbol}
     return symbol
 
 def getChartType():
