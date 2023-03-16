@@ -130,7 +130,6 @@ def generateLineGraph(timeSeries, timeSeriesData, startDate, endDate, graphTitle
             # find objects based on date range
             if date > startDate and date < endDate:
                 # assign x-coordinate the date
-                x = float(date.timestamp())
                 x_labels.insert(0, date)
                 # assign y-coordinate it's value based on the current key (line name)
                 y = float(values[line])
