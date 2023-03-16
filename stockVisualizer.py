@@ -109,7 +109,7 @@ def generateGraph(symbol, timeSeries, chart, stocksDictionary, startDate, endDat
     # create graph based on selected chart
     if (chart == "Line"):
         generateLineGraph(timeSeries, timeSeriesData, startDate, endDate, graphTitle)
-    if (chart =="Bar"):
+    if (chart == "Bar"):
         generateBarChart(timeSeries, timeSeriesData, startDate, endDate, graphTitle)
 
 def generateLineGraph(timeSeries, timeSeriesData, startDate, endDate, graphTitle):
