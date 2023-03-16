@@ -131,7 +131,7 @@ def generateLineGraph(timeSeries, timeSeriesData, startDate, endDate, graphTitle
             if date > startDate and date < endDate:
                 # assign x-coordinate the date
                 x = float(date.timestamp())
-                x_labels.append(date)
+                x_labels.insert(0, date)
                 # assign y-coordinate it's value based on the current key (line name)
                 y = float(values[line])
                 # add the y-coordinate to the list of data points
@@ -140,7 +140,7 @@ def generateLineGraph(timeSeries, timeSeriesData, startDate, endDate, graphTitle
         lineGraph.add(line, dataPoints)
     
     # set x-axis labels
-    lineGraph.x_labels = x_labels.reverse()
+    lineGraph.x_labels = x_labels
 
     # open graph in browser
     lineGraph.render_in_browser()
@@ -167,9 +167,9 @@ def generateBarChart(timeSeries, timeSeriesData, startDate, endDate, graphTitle)
             if date > startDate and date < endDate:
                 # add date to x-axis label list
                 if (timeSeries == "TIME_SERIES_INTRADAY"):
-                    x_labels.append(date.strftime("%Y/%m/%d %H:%M:%S"))
+                    x_labels.insert(0, date.strftime("%Y/%m/%d %H:%M:%S"))
                 else:
-                    x_labels.append(date.strftime("%Y/%m/%d"))
+                    x_labels.insert(0, date.strftime("%Y/%m/%d"))
                 # add value to data point list
                 y = float(values[label])
                 dataPoints.append(y)
@@ -177,7 +177,7 @@ def generateBarChart(timeSeries, timeSeriesData, startDate, endDate, graphTitle)
         barChart.add(label, dataPoints)
     
     # set x-axis labels
-    barChart.x_labels = x_labels.reverse()
+    barChart.x_labels = x_labels
     
     # open graph in browser
     barChart.render_in_browser()
