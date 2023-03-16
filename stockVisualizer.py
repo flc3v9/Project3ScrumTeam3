@@ -48,9 +48,22 @@ def getTimeSeries():
         else:
             print('You have not chosen a valid option. Please only enter values between 1-4.')
 
+def getDateRange():
+    while True:
+        startDate = getDate("start")
+        print("")
+        endDate = getDate("end")
+
+        if(startDate < endDate):
+            break
+        else:
+            print("\nError: Start date cannot be later than End date. Enter the dates again.\n")
+            continue
+    return startDate, endDate
+
 def getDate(dateType):
     while True:
-        strDate = input(f"Enter the {dateType} date in YYYY-MM-DD format:\n")
+        strDate = input(f"Enter the {dateType} date (YYYY-MM-DD): ")
         
         # check format
         format = "%Y-%m-%d"
