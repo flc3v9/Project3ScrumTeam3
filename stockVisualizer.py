@@ -17,10 +17,10 @@ def getChartType():
     while True:
         chartTypeOption = int(input('Enter chart type you want (1, 2): '))
         if (chartTypeOption == 1):
-            choice = "Line"
+            choice = "Bar"
             return choice
         elif (chartTypeOption == 2):
-            choice = "Bar"
+            choice = "Line"
             return choice
         else:
             print('You have not chosen a valid option. Please only enter values 1 or 2.')
