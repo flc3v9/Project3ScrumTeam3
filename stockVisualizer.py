@@ -184,22 +184,38 @@ def generateBarChart(timeSeries, timeSeriesData, startDate, endDate, graphTitle)
 
 # Call our functions
 def main():
-    try:
-        symbol = getSymbol()
-        
-        print("")
-        chart = getChartType()
-        
-        print("")
-        timeSeries = getTimeSeries()
-        
-        print("")
-        startDate, endDate = getDateRange()
-        
-        print("")
-        stocksDictionary = getData(timeSeries, symbol)
-        generateGraph(symbol, timeSeries, chart, stocksDictionary, startDate, endDate)
-    except Exception as error:
-        print("Something went wrong with the symbol entered. Please try again.")
+    while True:
+        # title
+        print("Stock Data Visualizer")
+        print("-------------------------\n")
+
+        # run program
+        try:
+            symbol = getSymbol()
+            
+            print("")
+            chart = getChartType()
+            
+            print("")
+            timeSeries = getTimeSeries()
+            
+            print("")
+            startDate, endDate = getDateRange()
+            
+            print("")
+            stocksDictionary = getData(timeSeries, symbol)
+            generateGraph(symbol, timeSeries, chart, stocksDictionary, startDate, endDate)
+        except Exception as error:
+            print("Something went wrong with the symbol entered. Please try again.\n")
+            continue
+
+        # run again?
+        run_again_input = input("\nWould you like to view more stock data? (y/n): ")
+        if (run_again_input == "y"):
+            print("\n")
+            continue
+        else:
+            print("\nOkay, thank you for using this program.")
+            break
 
 main()
