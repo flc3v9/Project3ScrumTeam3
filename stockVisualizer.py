@@ -80,7 +80,7 @@ def getData(timeSeries, symbol):
     queryData['symbol'] = symbol
     queryData['apikey'] = "QY73AL7RJZDQESXX"
     if (timeSeries == "TIME_SERIES_INTRADAY"):
-        queryData['interval'] = interval
+        queryData['interval'] = "15min"
 
     # request the data from alpha vantage
     alphavantageRequest = requests.get('https://www.alphavantage.co/query', params=queryData)
@@ -94,7 +94,7 @@ def getData(timeSeries, symbol):
     else:
         print("Error: Request failed")
 
-def generateGraph(timeSeries, chart, stocksDictionary, startDate, endDate):
+def generateGraph(symbol, timeSeries, chart, stocksDictionary, startDate, endDate):
     # get the name of the data for that time series ex. 'Monthly Time Series'
     timeSeriesName = list(stocksDictionary)[1]
 
@@ -194,7 +194,7 @@ def main():
         timeSeries = getTimeSeries()
         startDate, endDate = getDateRange()
         stocksDictionary = getData(timeSeries, symbol)
-        generateGraph(timeSeries, chart, stocksDictionary, startDate, endDate)
+        generateGraph(symbol, timeSeries, chart, stocksDictionary, startDate, endDate)
     except Exception as error:
         print(f"Something went wrong with the symbol. {str(error)}")
 
