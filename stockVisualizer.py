@@ -140,7 +140,7 @@ def generateLineGraph(timeSeries, timeSeriesData, startDate, endDate, graphTitle
         lineGraph.add(line, dataPoints)
     
     # set x-axis labels
-    lineGraph.x_labels = x_labels
+    lineGraph.x_labels = x_labels.reverse()
 
     # open graph in browser
     lineGraph.render_in_browser()
@@ -177,7 +177,7 @@ def generateBarChart(timeSeries, timeSeriesData, startDate, endDate, graphTitle)
         barChart.add(label, dataPoints)
     
     # set x-axis labels
-    barChart.x_labels = x_labels
+    barChart.x_labels = x_labels.reverse()
     
     # open graph in browser
     barChart.render_in_browser()
