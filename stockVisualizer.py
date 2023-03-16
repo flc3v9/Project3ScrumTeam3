@@ -9,7 +9,7 @@ def getSymbol():
     #if(symbol != stock api data)
     #{print("Please put in a valid stock ID")}
     #else{return symbol}
-    return symbol;
+    return symbol
 
 def getChartType():
     return
