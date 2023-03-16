@@ -2,10 +2,6 @@
 import pygal, lxml, requests
 from datetime import datetime
 
-
-# API
-    # for these, you will want to use the link format. we might have to see how to connect these
-
 # Write our functions
 def getSymbol():
     return
@@ -14,20 +10,25 @@ def getChartType():
     return
 
 def getTimeSeries():
-    return
-
-def getDateRange():
+    print('Select the Time Series of the chart you want to Generate:\n------------------------------------')
+    print('1. Intraday\n2. Daily\n3. Weekly\n4.Monthly')
+    choice = ""
     while True:
-        beginDate = getDate("beginning")
-        print("")
-        endDate = getDate("ending")
-
-        if(beginDate < endDate):
-            break
+        timeSeriesOption = int(input('Enter time series option(1, 2, 3, 4): '))
+        if (timeSeriesOption == 1):
+            choice = "TIME_SERIES_INTRADAY"
+            return choice
+        elif (timeSeriesOption == 2):
+            choice = "TIME_SERIES_DAILY_ADJUSTED"
+            return choice
+        elif (timeSeriesOption == 3):
+            choice = "TIME_SERIES_WEEKLY"
+            return choice
+        elif (timeSeriesOption == 4):
+            choice = "TIME_SERIES_MONTHLY"
+            return choice
         else:
-            print("Please enter an ending date that is after the beginning date.\n")
-            continue
-    return beginDate, endDate
+            print('You have not chosen a valid option. Please only enter values between 1-4.')
 
 def getDate(dateType):
     while True:
