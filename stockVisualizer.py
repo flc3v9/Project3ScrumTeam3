@@ -200,6 +200,6 @@ def main():
         stocksDictionary = getData(timeSeries, symbol)
         generateGraph(symbol, timeSeries, chart, stocksDictionary, startDate, endDate)
     except Exception as error:
-        print(f"Something went wrong with the symbol. {str(error)}")
+        print("Something went wrong with the symbol entered. Please try again.")
 
 main()
