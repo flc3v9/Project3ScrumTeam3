@@ -80,7 +80,6 @@ def getData(timeSeries, symbol):
 
     # request the data from alpha vantage
     alphavantageRequest = requests.get('https://www.alphavantage.co/query', params=queryData)
-    print(alphavantageRequest.url)
 
     # check if request successfull
     if alphavantageRequest.status_code == 200:
